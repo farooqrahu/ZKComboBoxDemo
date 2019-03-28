@@ -1,0 +1,34 @@
+<hbox pack="center" align="top" width="100%" height="400px">
+	<style src="/widgets/combobox/simple_combobox/css/simple_combo.css" />
+	<div apply="org.zkoss.bind.BindComposer" height="278px" width="443px" class="combodivarea"
+		viewModel="@id('vm') @init('demo.combobox.simple_combobox.ShirtViewModel')">
+		<separator spacing="40px" />
+		<hbox pack="center" width="440px" spacing="2.3em">
+			<vlayout>
+				<separator spacing="20px" />
+				<label value="Color" class="boxlabel" />
+				<combobox id="cmbColor" width="150px"
+					model="@load(vm.colors)" selectedItem="@bind(vm.shirtColor)">
+					<template name="model">
+						<comboitem label="@load(each)"
+							image="@load(vm.getIconImage(each))" />
+					</template>
+				</combobox>
+				<separator spacing="10px" />
+				<label value="Size" class="boxlabel" />
+				<combobox id="cmbSize" width="150px"
+					model="@load(vm.sizes)" selectedItem="@bind(vm.shirtSize)">
+					<template name="model">
+						<comboitem label="@load(each)"
+							image="@load(vm.getIconImage(each))" />
+					</template>
+				</combobox>
+			</vlayout>
+			<hbox pack="center" align="center" width="168px" height="210px" >
+				<image id="myimage" src="@load(vm.shirtImage)" />
+			</hbox>
+		</hbox>
+	</div>
+</hbox>
+
+
